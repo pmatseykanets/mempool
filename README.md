@@ -37,7 +37,7 @@ A utility that reads transactions from a text file, loads them into a mempool, a
 TxHash=40E10C7CF56A738C0B8AD4EE30EA8008C7B2334B3ADA195083F8CB18BD3911A0 Gas=729000 FeePerGas=0.11134106816568039 Signature=6386A3893BEB6A5A64E0677F406634E791DEE78D49CF30581AE5281D4094E495E671647EF5E7FD2D207AB8EBA0EA693703E9C368402731BE99E81BDB748EA662
 ```
 
-mempool-cli options:
+Available options:
 
 ```txt
   -cap int
@@ -50,7 +50,7 @@ mempool-cli options:
         Print version and exit
 ```
 
-Example usage:
+Sample usage:
 
 ```sh
 mempool-cli -in transactions.txt -out prioritized-transactions.txt -cap 5000
