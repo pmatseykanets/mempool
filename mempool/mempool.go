@@ -58,7 +58,7 @@ func (p *Mempool) Push(tx *types.Transaction) {
 
 	if p.Len() >= p.cap {
 		// If we're at capacity reject the transaction
-		// if it's priority (fee) is lower than the current lowest in the pool.
+		// if it's priority (fee) is lower than or equal to the current lowest in the pool.
 		if txFee.LessThanOrEqual(p.lowestFee) {
 			return
 		}
