@@ -27,10 +27,12 @@ func run() error {
 	var (
 		inPath, outPath string
 		showVersion     bool
+		cap             = 5000 // Default capacity.
 	)
-	flag.StringVar(&inPath, "in", "", "Input file path. Stdin if omitted.")
-	flag.StringVar(&outPath, "out", "", "Output file path. Stdout if omitted.")
-	flag.BoolVar(&showVersion, "version", showVersion, "Print version and exit.")
+	flag.IntVar(&cap, "cap", cap, "Mempool capacity")
+	flag.StringVar(&inPath, "in", "", "Input file path (default stdin)")
+	flag.StringVar(&outPath, "out", "", "Output file path (default stdout)")
+	flag.BoolVar(&showVersion, "version", showVersion, "Print version and exit")
 	flag.Parse()
 
 	if showVersion {
@@ -68,8 +70,8 @@ func run() error {
 	}
 
 	var (
+		pool    = mempool.New(cap)
 		scanner = bufio.NewScanner(inFile)
-		pool    = mempool.New(5000)
 		txt     string
 		line    int
 		tx      *types.Transaction
