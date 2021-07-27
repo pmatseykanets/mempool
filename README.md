@@ -65,7 +65,7 @@ mempool-cli < transactions.txt > prioritized-transactions.txt
 Install `mempool-cli`:
 
 ```sh
-go install github.com/pmatseykanets/mempool/cmd/mempool-cli
+GO111MODULE=on go install github.com/pmatseykanets/mempool/cmd/mempool-cli@latest
 ```
 
 Build `mempool-cli`:
